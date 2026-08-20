@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-cream-50 text-charcoal-600 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-lavender-200 text-charcoal-700;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight text-charcoal-700;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-lavender-400 ring-offset-2 ring-offset-cream-50 rounded;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-lavender-500;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-charcoal-700;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-charcoal-700 text-cream-50 hover:bg-charcoal-600 hover:shadow-elevated;
+  }
+
+  .btn-secondary {
+    @apply btn border border-charcoal-200 bg-cream-50 text-charcoal-600 hover:border-lavender-300 hover:text-lavender-500 hover:bg-cream-100;
+  }
+
+  .btn-ghost {
+    @apply btn text-charcoal-500 hover:text-lavender-500 hover:bg-lavender-50;
+  }
+
+  .card {
+    @apply rounded-2xl border border-cream-200 bg-white/80 shadow-soft backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-card hover:border-lavender-200 hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+  }
+
+  .badge-lavender {
+    @apply badge bg-lavender-50 text-lavender-500 border border-lavender-100;
+  }
+
+  .badge-blush {
+    @apply badge bg-blush-50 text-blush-500 border border-blush-100;
+  }
+
+  .badge-sage {
+    @apply badge bg-sage-50 text-sage-500 border border-sage-100;
+  }
+
+  .badge-rose {
+    @apply badge bg-rose-50 text-rose-500 border border-rose-100;
+  }
+
+  .badge-neutral {
+    @apply badge bg-cream-100 text-charcoal-500 border border-cream-200;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(74, 74, 69, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(74, 74, 69, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
