@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const badge = accentBadge[project.accent] ?? accentBadge.lavender;
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-cream-200 bg-white shadow-soft transition-all duration-300 hover:shadow-card hover:border-lavender-200 hover:-translate-y-1">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-cream-200 bg-white shadow-soft transition-all duration-300 hover:shadow-card hover:border-lavender-200 hover:-translate-y-1">
       <Link
         href={`/projects/${project.slug}`}
         className="block"
@@ -53,6 +53,20 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="mt-auto flex flex-wrap items-center gap-2 pt-6">
+          {project.liveDemo && (
+            <div className="mr-10">
+            <a
+              href={project.liveDemo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.shortTitle} live demo`}
+              className="btn-primary  px-2.5 py-1.5 text-xs"
+            >
+              <ExternalLink className="h-4 w-4" />
+              Live Demo
+            </a>
+            </div>
+          )}
           <Link
             href={`/projects/${project.slug}`}
             className="btn-ghost text-sm"
@@ -70,18 +84,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             <Github className="h-4 w-4" />
             GitHub
           </a>
-          {project.liveDemo && (
-            <a
-              href={project.liveDemo}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${project.shortTitle} live demo`}
-              className="btn-primary text-sm"
-            >
-              <ExternalLink className="h-4 w-4" />
-              Live Demo
-            </a>
-          )}
+
         </div>
       </div>
     </article>
