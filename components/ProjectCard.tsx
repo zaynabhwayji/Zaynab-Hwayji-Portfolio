@@ -46,8 +46,8 @@ export default function ProjectCard({ project }: { project: Project }) {
             <span key={tech}>{badge(tech)}</span>
           ))}
           {project.technologies.length > 5 && (
-            <span className="badge-neutral">
-              +{project.technologies.length - 5}
+            <span>
+              {badge(`+${project.technologies.length - 5}`)}
             </span>
           )}
         </div>
